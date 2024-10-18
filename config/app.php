@@ -83,7 +83,44 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'available_locales' => [
+        [
+            'lang'=>'ru',
+            'post'=>'каракалпаксий',
+            'title'=>'Русский',
+            'local'=>"РУ",
+
+            'heading'=>'Заголовок',
+            'body'=>'Текст',
+            'page'=>'Страницу',
+        ],
+        [
+            'lang'=>'qr',
+            'post'=>'каракалпаксий',
+            'title'=>'Qaraqalpaqsha',
+            'local'=>"KR",
+            
+
+            
+            'heading'=>'Bas bet',
+            'body'=>'Tekst',
+            'page'=>'Bet',
+        ],
+        [
+            'lang'=>'uz',
+            'post'=>'каракалпаксий',
+            'title'=>"O'zbekcha",
+            'local'=>"O'Z",
+
+            
+            'heading'=>'Sarlavha',
+            'body'=>'Tekst',
+            'page'=>'Sahifa',
+        ],
+      ],
+      
+    'locale' => 'qr',
+
 
     /*
     |--------------------------------------------------------------------------
@@ -168,6 +205,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        RealRashid\SweetAlert\SweetAlertServiceProvider::class,
     ])->toArray(),
 
     /*
@@ -183,6 +221,7 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         // 'Example' => App\Facades\Example::class,
+        'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
     ])->toArray(),
 
 ];
