@@ -45,11 +45,14 @@
                       </li>
                       @endforeach
                     </ul>
-                    <select class="form-control select2" name="item_id" data-toggle="select2">
-                      @foreach ($items as $item)
-                          <option value="{{$item->id}}">{{$item->name_qr}}</option>
-                      @endforeach
-                    </select>
+                    <div class="form-group mb-2">
+                      <label for="">Категория</label>
+                      <select class="form-control select2" name="item_id" data-toggle="select2">
+                        @foreach ($items as $item)
+                            <option value="{{$item->id}}">{{$item->name_qr}}</option>
+                        @endforeach
+                      </select>
+                    </div>
                   
                     <div class="tab-content">
                         @foreach (config('app.available_locales') as $local)

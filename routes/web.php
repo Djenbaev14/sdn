@@ -29,6 +29,7 @@ Route::get('/', function () {
 
 // lang
 
+Route::group(['prefix' => '','middleware' => 'auth'], function () {
 
     Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
     
@@ -95,3 +96,4 @@ Route::get('/', function () {
         Route::post('/delete/{post}', 'destroy')->name('dashboard.post.destroy');
     });
     
+});

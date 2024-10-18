@@ -25,7 +25,7 @@
               <div class="card-block p-3 mt-3" style="background: #fff" >
                 <div class="card-body d-flex justify-content-between align-items-center">
                   <h4 class="card-title">Бет қосыў</h4>
-                  <a href="{{route('dashboard.items.create')}}" class="card-button btn btn-primary">Артқа қайтыў</a>
+                  <a href="{{route('dashboard.items.index')}}" class="card-button btn btn-primary">Артқа қайтыў</a>
                 </div>
               </div>
             </div>
@@ -73,12 +73,13 @@
                             <?php
                             $title='title_'.$local['lang'];
                             ?>
-                            <input placeholder="{{$local['heading']}}" type="text" name="title_{{$local['lang']}}" value="{{$item->$title}}" id="simpleinput" class="form-control">
+                            <input placeholder="{{$local['heading']}}" type="text" name="title_{{$local['lang']}}" value="<?=($item->is_news==0 && $item->blog->count() > 0) ? $item->blog[0]->$title : '';?>" id="simpleinput" class="form-control">
                           </div>
                           <div class="col-md-12 mt-3">
                               <div class="form-group">
                                   {{-- <label for="body">{{$local['body']}}</label> --}}
-                                  <textarea class="form-control" id="editor_{{$local['lang']}}" name="body_{{$local['lang']}}" rows="10" placeholder="Введите текст" value="{{$item->$name}}"></textarea>
+                                  <textarea class="form-control" id="editor_{{$local['lang']}}" name="body_{{$local['lang']}}" rows="10" placeholder="Введите текст" 
+                                  ><?=($item->is_news==0 && $item->blog->count() > 0) ? $item->blog[0]->$body : '';?></textarea>
                               </div>
                         </div>
                         </div>

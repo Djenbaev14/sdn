@@ -81,7 +81,8 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        //
+        $items=Item::where('is_news','=',1)->get();
+        return view('admin.pages.posts.edit',compact('post','items'));
     }
 
     /**

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Item extends Model
@@ -20,6 +21,9 @@ class Item extends Model
     }
     public function menu_item():HasMany{
         return $this->HasMany(Menu_item::class);
+    }
+    public function blog():HasMany{
+        return $this->HasMany(Blog::class);
     }
     
 }

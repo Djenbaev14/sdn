@@ -23,13 +23,13 @@ class ChildrenController extends Controller
     }
 
     public function blog(Request $request, $slug){
-        // return Item::where('slug',$slug)->first()->is_news;
+        
+        $item=Item::where('slug',$slug)->first();
         if(Item::where('slug',$slug)->first()->is_news==1){
             // return Post::orderBy('id','desc')->get();
-            return PostsResource::collection(Post::orderBy('id','desc')->paginate(10));
+            return PostsResource::collection(Post::where('item_id',$item->id)->orderBy('id','desc')->paginate(10));
         }
         else if(Item::where('slug',$slug)->first()->is_news==0){
-            $item=Item::where('slug',$slug)->first();
             return new BlogResource(Blog::where('item_id',$item->id)->get());
         }
     }

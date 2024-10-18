@@ -36,7 +36,7 @@
         <div class="card p-4" style="overflow: auto">
           
           <div class="tab-pane" style="overflow: auto">
-            <table id="basic-datatable" class="table">
+            <table id="myTable" class="table">
               <thead>
                   <tr>
                       <th>ИД</th>
@@ -83,14 +83,20 @@
 
          
 @endsection
-@push('js')
-<!-- Datatables js -->
-<script src="assets/vendor/datatables.net/js/jquery.dataTables.min.js"></script>
-<script src="assets/vendor/datatables.net-bs5/js/dataTables.bootstrap5.min.js"></script>
-<script src="assets/vendor/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
-<script src="assets/vendor/datatables.net-responsive-bs5/js/responsive.bootstrap5.min.js"></script>
 
-<!-- Datatable Init js -->
-<script src="assets/js/pages/demo.datatable-init.js"></script>
-                                                
+@push('css')
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.1.5/css/dataTables.dataTables.css" />
+@endpush
+
+
+@push('js')
+    <script src="https://cdn.datatables.net/2.1.5/js/dataTables.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script>
+      $(document).ready(function () {
+          $('#myTable').DataTable(
+            {"order": [[ 0, "desc" ]]}
+          );
+      });
+    </script>
 @endpush
