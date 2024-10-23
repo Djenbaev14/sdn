@@ -15,12 +15,12 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('item_id');
             $table->foreign('item_id')->references('id')->on('items');
-            $table->longText('title_uz');
-            $table->longText('title_qr');
-            $table->longText('title_ru');
-            $table->longText('body_uz');
-            $table->longText('body_qr');
-            $table->longText('body_ru');
+            $table->longText('title_uz')->nullable();
+            $table->longText('title_qr')->nullable();
+            $table->longText('title_ru')->nullable();
+            $table->longText('body_uz')->nullable();
+            $table->longText('body_qr')->nullable();
+            $table->longText('body_ru')->nullable();
             $table->timestamps();
         });
     }

@@ -18,9 +18,9 @@ return new class extends Migration
             $table->longText('title_uz');
             $table->longText('title_qr');
             $table->longText('title_ru');
-            $table->longText('body_uz');
-            $table->longText('body_qr');
-            $table->longText('body_ru');
+            $table->longText('body_uz')->nullable();
+            $table->longText('body_qr')->nullable();
+            $table->longText('body_ru')->nullable();
             $table->string('slug');
             $table->string('photo');
             $table->timestamps();

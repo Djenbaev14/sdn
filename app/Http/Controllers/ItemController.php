@@ -37,13 +37,6 @@ class ItemController extends Controller
             'name_qr'=>'required',
             'name_uz'=>'required',
         ]);
-        if(!$request->has('is_news')){
-            $request->validate([
-                'title_ru'=>'required',
-                'title_qr'=>'required',
-                'title_uz'=>'required',
-            ]);
-        }
         $item = new Item();
         $item->name_qr = $request->name_qr;
         $item->name_ru = $request->name_ru;
